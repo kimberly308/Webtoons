@@ -16,6 +16,21 @@ def check_updates(website_link):
     latest_chapter_number = latest_chapter.split()[5]
     return latest_chapter_number
 
+def format_chapters(current_chap, latest_chap):
+    """
+    Formats two input chapter numbers, provided as a string, 
+    into an integer or float
+    """
+    try:
+        current_chap = int(current_chap)
+    except ValueError:
+        current_chap = float(current_chap)
+    try:
+        latest_chap = int(latest_chap)
+    except ValueError:
+        latest_chap = float(latest_chap)  
+    return current_chap, latest_chap
+
 
 
 # identifies webtoons with updates
@@ -30,7 +45,8 @@ with open ('webtoons.txt', 'r') as data:     # Open webtoons.txt for reading
 
         latest_chap_num = check_updates(webtoon_website)
         if latest_chap_num > webtoon_chap:
-            updates.append((webtoon_name, int(webtoon_chap), int(latest_chap_num)))
+            webtoon_chap, latest_chap_num = format_chapters(webtoon_chap, latest_chap_num)
+            updates.append((webtoon_name, webtoon_chap, latest_chap_num))
 
 # prints the webtoons with updates in the form of 
 # (name, last chapter I read, latest chapter available)
