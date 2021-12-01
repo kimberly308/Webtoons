@@ -21,14 +21,10 @@ def format_chapters(current_chap, latest_chap):
     Formats two input chapter numbers, provided as a string, 
     into an integer or float
     """
-    try:
-        current_chap = int(current_chap)
-    except ValueError:
-        current_chap = float(current_chap)
-    try:
-        latest_chap = int(latest_chap)
-    except ValueError:
-        latest_chap = float(latest_chap)  
+    try: current_chap = int(current_chap)
+    except ValueError: current_chap = float(current_chap)
+    try: latest_chap = int(latest_chap)
+    except ValueError: latest_chap = float(latest_chap)  
     return current_chap, latest_chap
 
 
