@@ -1,1 +1,1 @@
-('Solo leveling', '168', '175')
+('Solo leveling', 168, 175)
