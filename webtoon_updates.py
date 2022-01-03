@@ -45,7 +45,7 @@ with open ('webtoons.txt', 'r') as data:     # Open webtoons.txt for reading
             updates.append((webtoon_name, webtoon_chap, latest_chap_num))
 
 # prints the webtoons with updates in the form of 
-# (name, last chapter I read, latest chapter available)
+# (name, last chapter read, latest chapter available)
 print("\n")
 if len(updates) == 0:
     print("No updates")
